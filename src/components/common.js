@@ -146,7 +146,7 @@ export const BtnView = {
   functional: true,
   render(h, ct) {
     return (
-      <a class={[s.btn]} href="https://drive.google.com/file/d/1eZC_WbYZ_EtYQxlUYRtBDjs38dGiL1vl/view" target="_new">
+      <a class={[s.btn]} href="https://drive.google.com/file/d/17zxbAMan6alFx13UwUjpMgxJ0y4tr86c/view" target="_new">
         View All
       </a>
     )
