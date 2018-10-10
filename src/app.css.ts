@@ -77,7 +77,9 @@ const globalCSS = css`
     }
     &.profile {
       background: #fff;
-      height: calc(100vh - 100px);
+      height: calc(100vh - 200px);
+      display: flex;
+      align-items: center;
       &:after {
         content: '';
         background: #fff;
@@ -304,7 +306,6 @@ const globalCSS = css`
 
   .profile {
     margin: 0 auto;
-    padding-top: 5%;
     margin-top: 40px;
   }
 
@@ -462,6 +463,7 @@ const globalCSS = css`
         &.profile {
           margin-top: 38px;
           height: auto;
+          flex-direction: column;
         }
         &.gallery h2 {
           margin-bottom: 40px;
