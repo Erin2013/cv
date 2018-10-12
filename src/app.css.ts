@@ -174,7 +174,8 @@ const globalCSS = css`
   .logo {
     width: 70px;
     height: 70px;
-    background: no-repeat url(./assets/logo.svg);
+    background: no-repeat url(./assets/logo.png);
+    background-size: cover;
   }
 
   .w1200 {
