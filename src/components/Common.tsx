@@ -23,27 +23,23 @@ export const ExpMygym = () => (
         Management of social media platforms involving the visual
         content(videos, images) creation and copywriting.
       </li>
+
+      <li>
+        Building My Gym's new responsive website, which is still working on.
+      </li>
+
+      <li>
+        Designed teaching materials, flyers, posters, EDMs, announcements &
+        monthly class schedules.
+      </li>
+
       <li>
         Planned and decorated special events & themed holiday parties. Provided
         backdrop design and decorations.
       </li>
-      <li>
-        Designed flyers, posters, EDMs, announcements & monthly class schedules.
-      </li>
+
       <li>
         Courses' photo-shooting & video-shooting for collecting materials.
-      </li>
-      <li>
-        Created teaching materials including flashcards, worksheets, thematic
-        props and more.
-      </li>
-      <li>Materials editing for the classroom's TV, social media platforms.</li>
-      <li>
-        Created and managed the content of courses' signup forms (images and
-        copywriting).
-      </li>
-      <li>
-        Building My Gym's new responsive website, which is still working on.
       </li>
     </ul>
   </div>
