@@ -1,21 +1,5 @@
 {
-    "defaultSeverity": "error",
-    "extends": [
-        "tslint:recommended",
-        "tslint-config-prettier",
-        "tslint-plugin-prettier",
-        "tslint-react"
-    ],
-    "jsRules": {},
-    "rules": {
-        "no-console": false,
-        "prettier": true,
-        "interface-over-type-literal": false,
-        "variable-name": false,
-        "object-literal-sort-keys": false,
-        "member-access": false,
-        "jsx-no-multiline-js": false,
-        "no-unused-expression": false
-    },
-    "rulesDirectory": []
+  "extends": [
+    "@rwu823/ts-base/tslint"
+  ]
 }

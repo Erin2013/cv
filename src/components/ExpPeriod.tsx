@@ -4,7 +4,6 @@ import styled, { css } from 'styled-components'
 const Div = styled.div`
   ${(_p: {}) => css``};
 `
-
 type Props = {
   from: string
   to: string

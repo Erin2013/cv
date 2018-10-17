@@ -1,4 +1,4 @@
-import { css } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 
 const color = {
   primary: '#C19441',
@@ -6,7 +6,7 @@ const color = {
   font: '#282828',
 }
 
-const globalCSS = css`
+const GlobalStyles = createGlobalStyle`
   .lg-backdrop {
     background: #fff !important;
     &.in {
@@ -516,4 +516,4 @@ const globalCSS = css`
   }
 `
 
-export default globalCSS
+export default GlobalStyles

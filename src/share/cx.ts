@@ -1,3 +1,4 @@
+import is from 'is-type-guard'
 type CX =
   | {
       [className: string]: boolean
@@ -8,11 +9,9 @@ type CX =
 const cx = (classNames: CX, ...args: string[]): string => {
   let cls = Array.from(classNames as string[])
 
-  if (typeof classNames === 'string') {
+  if (is.string(classNames)) {
     cls = [classNames, ...args]
-  }
-
-  if (!Array.isArray(classNames) && typeof classNames === 'object') {
+  } else if (is.object(classNames)) {
     cls = Object.entries(classNames).reduce(
       (names: string[], [key, value]) => [...names, ...(value ? [key] : [])],
       [],
