@@ -29,7 +29,7 @@ const renderHTML: RenderHTML = (ReactComponent, opts = {}) => {
         <link href='//unpkg.com/ress@1.2.2/dist/ress.min.css' rel='stylesheet' />
         <link href='https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css' rel='stylesheet' />
         ${sheet.getStyleTags()}
-        <title><%= htmlWebpackPlugin.options.title %></title>
+        <title>Erin's Profile</title>
       </head>
       <body>
         <div id="app">${html}</div>

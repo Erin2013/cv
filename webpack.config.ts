@@ -1,11 +1,11 @@
-import { createWriteStream } from 'fs'
+import { createWriteStream, existsSync, mkdirSync } from 'fs'
+import HardSourcePlugin from 'hard-source-webpack-plugin'
 import HTMLPlugin from 'html-webpack-plugin'
 import { resolve } from 'path'
 import styledComponentsTransformer from 'typescript-plugin-styled-components'
 import { Configuration } from 'webpack'
 import { Configuration as DevConfiguration } from 'webpack-dev-server'
 import renderHTML from './dev/renderHTML'
-import pkg from './package.json'
 import App from './src/App'
 
 const { NODE_ENV } = process.env
@@ -15,7 +15,7 @@ const isProd = env === 'production'
 
 const filename = isProd ? 'static/[name].[chunkhash].js' : 'static/[name].js'
 
-type Conf = Configuration & {
+interface Conf extends Configuration {
   devServer: DevConfiguration
 }
 
@@ -23,10 +23,14 @@ const conf: Conf = {
   mode: isDev ? 'development' : isProd ? 'production' : 'none',
 
   devServer: {
-    stats: {
-      chunks: true,
-    },
     contentBase: resolve('src'),
+    stats: {
+      chunks: false,
+      modules: false,
+    },
+    overlay: {
+      errors: true,
+    },
   },
 
   resolve: {
@@ -76,9 +80,13 @@ const conf: Conf = {
   },
 
   plugins: [
+    new HardSourcePlugin(),
     new HTMLPlugin({
-      title: pkg.description,
       template: (() => {
+        if (!existsSync('out')) {
+          mkdirSync('out')
+        }
+
         const tmpl = 'out/index.html'
         const ws = createWriteStream(tmpl)
 
