@@ -46,7 +46,7 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-hot-loader": "^4.3.11",
-    "styled-components": "^4.0.0"
+    "styled-components": "^4.0.2"
   },
   "scripts": {
     "dev": "webpack-dev-server --hot",

@@ -8,5 +8,6 @@
   ],
   "compilerOptions": {
     "outDir": "out",
+    "declaration": false,
   }
 }
