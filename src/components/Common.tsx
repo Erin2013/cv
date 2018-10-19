@@ -157,7 +157,7 @@ export const BtnTouch = () => (
 export const BtnView = () => (
   <a
     className={`btn`}
-    href="https://drive.google.com/file/d/17zxbAMan6alFx13UwUjpMgxJ0y4tr86c/view"
+    href="https://drive.google.com/file/d/1np0zUbY_5bq4ZG3Ae4GD5U8o83SDn45d/view"
     target="_new"
     style={{
       color: '#1484a1',
