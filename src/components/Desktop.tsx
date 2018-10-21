@@ -1,6 +1,3 @@
-// import scrollTo from 'animated-scrollto'
-// import $ from 'cash-dom'
-
 import React from 'react'
 import styled, { css } from 'styled-components'
 

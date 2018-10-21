@@ -11,12 +11,6 @@ type Props = {
 }
 
 class ExpPeriod extends React.PureComponent<Props, {}> {
-  static defaultProps = {}
-
-  constructor(props: Props) {
-    super(props)
-    this.state = {}
-  }
   render() {
     const { from, to } = this.props
 
