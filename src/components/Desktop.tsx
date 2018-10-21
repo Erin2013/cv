@@ -4,7 +4,6 @@ import styled, { css } from 'styled-components'
 import animeScrollTo from '../share/animeScrollTo'
 import {
   BtnTouch,
-  BtnView,
   Exp5213,
   ExpFFN,
   ExpMygym,
@@ -18,6 +17,7 @@ import {
   TextPortfolio,
   TextTouch,
 } from './Common'
+import BtnView from './BtnView'
 
 const Div = styled.div`
   ${(_p: {}) => css``};

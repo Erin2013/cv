@@ -5,7 +5,6 @@ import animeScrollTo from '../share/animeScrollTo'
 import cx from '../share/cx'
 import {
   BtnTouch,
-  BtnView,
   Exp5213,
   ExpFFN,
   ExpMygym,
@@ -19,6 +18,8 @@ import {
   TextPortfolio,
   TextTouch,
 } from './Common'
+
+import BtnView from './BtnView'
 
 const Div = styled.div`
   ${(_p: {}) => css``};

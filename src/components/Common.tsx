@@ -153,17 +153,3 @@ export const BtnTouch = () => (
     </a>
   </div>
 )
-
-export const BtnView = () => (
-  <a
-    className={`btn`}
-    href="https://goo.gl/i2J6zD"
-    target="_new"
-    style={{
-      color: '#1484a1',
-      borderColor: '#1484a1',
-    }}
-  >
-    View All
-  </a>
-)
