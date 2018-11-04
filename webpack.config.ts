@@ -65,7 +65,7 @@ const conf: Conf = {
                         getDisplayName(filename, bindingName) {
                           return `${bindingName}__${filename
                             .replace(__dirname, '')
-                            .replace('.tsx', '')
+                            .replace('.tsx$', '')
                             .replace(/\//g, '_')} `
                         },
                       }),

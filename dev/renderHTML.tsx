@@ -3,7 +3,10 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { ServerStyleSheet } from 'styled-components'
 
 type RenderHTML = (
-  ReactComponent: React.ComponentType,
+  /**
+   * React.ComponentType
+   */
+  Component: React.ComponentType,
   /** options
    * - minify - Remove spaces and \n
    */
@@ -12,10 +15,15 @@ type RenderHTML = (
   }>,
 ) => string
 
-const renderHTML: RenderHTML = (ReactComponent, opts = {}) => {
+/**
+ *
+ * @param Component
+ * @param opts
+ */
+const renderHTML: RenderHTML = (Component, opts = {}) => {
   const sheet = new ServerStyleSheet()
 
-  const html = renderToStaticMarkup(sheet.collectStyles(<ReactComponent />))
+  const html = renderToStaticMarkup(sheet.collectStyles(<Component />))
 
   const markup = /* html */ `<!doctype html>
       <head>
