@@ -1,35 +1,30 @@
-import React from 'react'
-import gapi, { TypeGAPI } from '../share/api'
+import React, { useEffect, useState } from 'react'
+import gapi from '../share/api'
 
 type Props = {}
 
-class BtnView extends React.PureComponent<Props, TypeGAPI> {
-  state = {
-    urlPDF: 'https://goo.gl/i2J6zD',
-  }
+const BtnView: React.FunctionComponent<Props> = () => {
+  const [urlPDF, setState] = useState('https://goo.gl/i2J6zD')
 
-  componentDidMount() {
+  useEffect(() => {
     gapi().then(d => {
-      this.setState(d)
+      setState(d.urlPDF)
     })
-  }
+  }, [])
 
-  render() {
-    const { urlPDF } = this.state
-
-    return (
-      <a
-        className={`btn`}
-        href={urlPDF}
-        target="_new"
-        style={{
-          color: '#1484a1',
-          borderColor: '#1484a1',
-        }}
-      >
-        View All
-      </a>
-    )
-  }
+  return (
+    <a
+      className={`btn`}
+      href={urlPDF}
+      target="_new"
+      style={{
+        color: '#1484a1',
+        borderColor: '#1484a1',
+      }}
+    >
+      View All
+    </a>
+  )
 }
+
 export default BtnView

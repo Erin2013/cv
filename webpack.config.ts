@@ -1,5 +1,4 @@
 import { createWriteStream, existsSync, mkdirSync } from 'fs'
-import HardSourcePlugin from 'hard-source-webpack-plugin'
 import HTMLPlugin from 'html-webpack-plugin'
 import { resolve } from 'path'
 import styledComponentsTransformer from 'typescript-plugin-styled-components'
@@ -20,7 +19,12 @@ interface Conf extends Configuration {
 }
 
 const conf: Conf = {
-  mode: isDev ? 'development' : isProd ? 'production' : 'none',
+  mode: (() => {
+    if (isDev) return 'development'
+    if (isProd) return 'production'
+
+    return 'none'
+  })(),
 
   devServer: {
     contentBase: resolve('src'),
@@ -62,8 +66,8 @@ const conf: Conf = {
                   getCustomTransformers: () => ({
                     before: [
                       styledComponentsTransformer({
-                        getDisplayName(filename, bindingName) {
-                          return `${bindingName}__${filename
+                        getDisplayName(fileName, bindingName) {
+                          return `${bindingName}__${fileName
                             .replace(__dirname, '')
                             .replace('.tsx$', '')
                             .replace(/\//g, '_')} `
@@ -80,7 +84,6 @@ const conf: Conf = {
   },
 
   plugins: [
-    new HardSourcePlugin(),
     new HTMLPlugin({
       template: (() => {
         if (!existsSync('out')) {
@@ -98,7 +101,7 @@ const conf: Conf = {
       minify: {
         collapseWhitespace: true,
       },
-    }),
+    }) as any,
   ],
 }
 

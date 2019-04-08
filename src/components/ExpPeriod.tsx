@@ -10,16 +10,12 @@ type Props = {
   size?: number
 }
 
-class ExpPeriod extends React.PureComponent<Props, {}> {
-  render() {
-    const { from, to } = this.props
-
-    return (
-      <Div className={`period`}>
-        <p className={`from`}>{from}</p>
-        <p className={`to`}>{to}</p>
-      </Div>
-    )
-  }
+const ExpPeriod: React.FunctionComponent<Props> = ({ from, to }) => {
+  return (
+    <Div className={`period`}>
+      <p className={`from`}>{from}</p>
+      <p className={`to`}>{to}</p>
+    </Div>
+  )
 }
 export default ExpPeriod

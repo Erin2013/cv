@@ -35,14 +35,12 @@ const renderHTML: RenderHTML = (Component, opts = {}) => {
         <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' />
         <link href='//fonts.googleapis.com/css?family=Roboto:400,300,300italic,500,400italic,500italic' rel='stylesheet' />
         <link href='//unpkg.com/ress@1.2.2/dist/ress.min.css' rel='stylesheet' />
-        <link href='https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css' rel='stylesheet' />
+        <link href='https://cdn.jsdelivr.net/npm/aos@next/dist/aos.css' rel='stylesheet' />
         ${sheet.getStyleTags()}
         <title>Erin's Profile</title>
       </head>
       <body>
         <div id="app">${html}</div>
-
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

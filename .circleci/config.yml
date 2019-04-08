@@ -1,0 +1,192 @@
+version: 2.1
+
+vars:
+  setup_docker: &setup_docker
+    setup_remote_docker:
+      docker_layer_caching: true
+
+  branch_is_deploy: &branch_is_deploy
+    filters:
+      branches:
+        only: master
+
+  branch_is_testing: &branch_is_testing
+    filters:
+      branches:
+        ignore: master
+
+  setup_gcloud: &setup_gcloud
+    run:
+      name: Setup GCloud
+      command: |
+        curl https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-$GCLOUD_SDK_VER.0.0-linux-x86_64.tar.gz -o ./gcloud-sdk.tar.gz
+        tar xzf gcloud-sdk.tar.gz -C ~
+        rm gcloud-sdk.tar.gz
+        export PATH=~/google-cloud-sdk/bin:$PATH
+        gcloud components install kubectl
+        gcloud config set project $GCLOUD_PROJECT
+
+        echo $GCLOUD_KEY | base64 --decode > ~/gcloud.key.json
+        gcloud auth activate-service-account --key-file ~/gcloud.key.json
+
+        gcloud container clusters get-credentials event-k8s --zone asia-northeast1-a
+        gcloud info
+
+orbs:
+  node:
+    executors:
+      default:
+        environment:
+          - TZ: Asia/Taipei
+        docker:
+          - image: circleci/node:10
+
+    commands:
+      # set_env:
+      #   steps:
+      #     - run:
+      #         name: Set Env
+      #         command: |
+      #           echo 'export IMAGE=gcr.io/$GCLOUD_PROJECT/www:$CIRCLE_SHA1' >> $BASH_ENV
+      #           echo 'export TOKEN_REPO=https://$GH_TOKEN@github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git' >> $BASH_ENV
+      #           echo $'export VER=v$(cat package.json | grep version | cut -d \'"\' -f4)' >> $BASH_ENV
+
+      #           source $BASH_ENV
+
+      #           echo "IMAGE=$IMAGE"
+      #           echo "VER=$VER"
+
+      setup_npm:
+        parameters:
+          token:
+            type: string
+            default: $NPM_TOKEN
+        steps:
+          - run:
+              name: Setup NPM
+              command: echo "//registry.npmjs.org/:_authToken=<<parameters.token>>" >> ~/.npmrc
+
+      deploy_to_npm:
+        parameters:
+          dir:
+            type: string
+            default: out
+        steps:
+          - setup_npm
+          - run: npm publish <<parameters.dir>>
+
+      setup_git:
+        parameters:
+          user:
+            type: string
+            default: Rocky Wu
+          email :
+            type: string
+            default : rwu823@gmail.com
+        steps:
+          - run:
+              name: Setup Git
+              command: |
+                git config --global user.name '<<parameters.user>>'
+                git config --global user.email '<<parameters.email>>'
+
+      deploy_to_github:
+        parameters:
+          dir:
+            type: string
+            default: out
+        steps:
+          - setup_git
+          - run:
+              name: Deploy to GitHub
+              command: |
+                TAG=v$VER
+                cd <<parameters.dir>>
+                git init
+                git add -A
+                git commit -nm "$TAG"
+                git push --quiet -f $TOKEN_REPO HEAD:latest
+                git push --quiet $TOKEN_REPO HEAD:$TAG
+                git tag $TAG
+                git push --quiet $TOKEN_REPO $TAG
+
+      docker_login:
+        parameters:
+            user:
+              type: string
+              default: $DOCKER_USER
+            pass:
+              type: string
+              default: $DOCKER_PASS
+        steps:
+          - run:
+              name: Docker Login
+              command: |
+                docker login -u <<parameters.user>> -p <<parameters.user.pass>>
+
+      checkout_install:
+        description: Cehckout sources and install node_modules
+        steps:
+          - checkout
+          - restore_cache:
+              key: node_modules#{{ checksum "yarn.lock" }}
+          - run: yarn
+          - save_cache:
+              key: node_modules#{{ checksum "yarn.lock" }}
+              paths:
+                - node_modules
+          - run: git checkout -- .
+          - run:
+              name: Decrypt Secret
+              command: |
+                sudo apt-get -y -qq update
+                sudo apt-get install bsdmainutils
+                yarn --silent transcrypt -p "$REPO_SECRET" -y
+          - run:
+              name: Set Env
+              command: |
+                echo "$(yarn --silent ts-node scripts/export-env)" >> $BASH_ENV
+                source $BASH_ENV
+
+    jobs:
+      test:
+        executor: default
+        steps:
+          - checkout_install
+          - run: npx jest --coverage
+          - run: bash <(curl -s https://codecov.io/bash)
+      lint:
+        executor: default
+        steps:
+          - checkout_install
+          - run: yarn lint
+      build:
+        executor: default
+        steps:
+          - checkout_install
+          - run: yarn build
+          - save_cache:
+              key: out#{{ .Revision }}
+              paths:
+                - out
+      deploy:
+        executor: default
+        steps:
+          - checkout_install
+          - restore_cache:
+              key: out#{{ .Revision }}
+          - deploy_to_github
+
+workflows:
+  version: 2
+  Test & Lint & Build:
+    jobs:
+      - node/test
+      - node/lint
+      - node/build
+      - node/deploy:
+          <<: *branch_is_deploy
+          requires:
+            - node/test
+            - node/lint
+            - node/build

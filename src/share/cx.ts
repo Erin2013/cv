@@ -1,4 +1,5 @@
 import is from 'is-type-guard'
+
 type CX =
   | {
       [className: string]: boolean

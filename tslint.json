@@ -1,5 +1,0 @@
-{
-  "extends": [
-    "@rwu823/ts-base/tslint"
-  ]
-}

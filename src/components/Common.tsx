@@ -134,7 +134,7 @@ export const FromUniversity = () => (
 )
 
 export const BtnTouch = () => (
-  <div className={`btn`}>
+  <div className="btn">
     <a href="mailto:eyao.au@gmail.com">
       <svg
         fill="#fff"

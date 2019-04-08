@@ -1,6 +1,7 @@
-import React from 'react'
-import { hot } from 'react-hot-loader'
+import React, { useEffect } from 'react'
+import { hot } from 'react-hot-loader/root'
 import styled, { css } from 'styled-components'
+import AOS from 'aos'
 
 import Desktop from './components/Desktop'
 import Mobile from './components/Mobile'
@@ -11,27 +12,22 @@ const Div = styled.div`
 `
 type Props = {}
 
-@hot(module)
-class App extends React.Component<Props, {}> {
-  componentDidMount() {
-    setTimeout(() => {
-      ;(window as any).AOS.init({
-        duration: 1200,
-        offset: 200,
-        delay: 100,
-      })
-    }, 500)
-  }
+const App: React.FunctionComponent<Props> = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1200,
+      offset: 200,
+      delay: 100,
+    })
+  }, [])
 
-  render() {
-    return (
-      <Div>
-        <GlobalStyles />
-        <Desktop />
-        <Mobile />
-      </Div>
-    )
-  }
+  return (
+    <Div>
+      <GlobalStyles />
+      <Desktop />
+      <Mobile />
+    </Div>
+  )
 }
 
-export default App
+export default hot(App)

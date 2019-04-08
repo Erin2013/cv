@@ -1,5 +1,5 @@
 {
-  "extends": "./node_modules/@rwu823/ts-base/tsconfig",
+  "extends": "@rwu823/ts-base/tsconfig",
   "exclude": [
     "node_modules",
     "out/**/*",
@@ -7,7 +7,6 @@
     "**/*.test.ts"
   ],
   "compilerOptions": {
-    "outDir": "out",
-    "declaration": false,
+    "outDir": "out"
   }
 }

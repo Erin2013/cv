@@ -77,7 +77,7 @@ class Desktop extends React.PureComponent<Props, {}> {
 
         <section className={`exp`} id="work-experience">
           <div className={`w800`}>
-            <h2 data-aos="flip-right" hidden={true}>
+            <h2 data-aos="flip-right" hidden>
               Work Experiences
             </h2>
             <div className={`workExperience`}>
@@ -142,4 +142,5 @@ class Desktop extends React.PureComponent<Props, {}> {
     )
   }
 }
+
 export default Desktop
