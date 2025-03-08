@@ -231,7 +231,7 @@ Error generating stack: `+n.message+`
   .logo {
     width: 70px;
     height: 70px;
-    background: no-repeat url(/logo.png);
+    background: no-repeat url(/cv/logo.png);
     background-size: cover;
   }
 
@@ -378,7 +378,7 @@ Error generating stack: `+n.message+`
     height: 180px;
     width: 180px;
     border-radius: 50%;
-    background: url('/photo.jpg') no-repeat;
+    background: url('/cv/photo.jpg') no-repeat;
     background-size: 180px;
   }
 
