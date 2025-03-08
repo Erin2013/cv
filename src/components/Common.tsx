@@ -135,6 +135,8 @@ export const FromUniversity = () => (
   <ExpPeriod from="Sep. 2006" to="Jul. 2010" />
 )
 
+export const Mail = () => <small>eyao.tw@gmail.com</small>
+
 export const BtnTouch = () => (
   <div className="btn">
     <a href="mailto:eyao.tw@gmail.com">
@@ -155,3 +157,14 @@ export const BtnTouch = () => (
     </a>
   </div>
 )
+
+export const GetInTouch = () => {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', rowGap: 4 }}>
+      <div>
+        <BtnTouch />
+      </div>
+      <Mail />
+    </div>
+  )
+}

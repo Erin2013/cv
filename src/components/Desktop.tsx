@@ -12,6 +12,8 @@ import {
   FromFFN,
   FromMyGym,
   FromUniversity,
+  GetInTouch,
+  Mail,
   TextDes,
   TextHI,
   TextPortfolio,
@@ -137,7 +139,7 @@ class Desktop extends React.PureComponent<Props, {}> {
         <section className={`getInTouch`} id="contact">
           <div className={`w960`}>
             <TextTouch />
-            <BtnTouch />
+            <GetInTouch />
           </div>
         </section>
       </Div>

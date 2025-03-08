@@ -13,6 +13,8 @@ import {
   FromFFN,
   FromMyGym,
   FromUniversity,
+  GetInTouch,
+  Mail,
   TextDes,
   TextHI,
   TextPortfolio,
@@ -136,7 +138,7 @@ class Mobile extends React.PureComponent<
 
         <section className={`getInTouch`} id="m-contact">
           <TextTouch />
-          <BtnTouch />
+          <GetInTouch />
         </section>
       </Div>
     )
