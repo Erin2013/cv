@@ -42,12 +42,12 @@ class Desktop extends React.PureComponent<Props, {}> {
             <h2 data-to="app" onClick={this.jumpTo}>
               About
             </h2>
-            <h2 data-to="work-experience" onClick={this.jumpTo}>
-              Experiences
+            <h2 data-to="gallery" onClick={this.jumpTo}>
+              Portfolio
             </h2>
             <div className={`logo`} />
-            <h2 data-to="gallery" onClick={this.jumpTo}>
-              Works
+            <h2 data-to="work-experience" onClick={this.jumpTo}>
+              Experiences
             </h2>
             <h2 data-to="contact" onClick={this.jumpTo}>
               Contact
@@ -72,6 +72,18 @@ class Desktop extends React.PureComponent<Props, {}> {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className={`gallery`} id="gallery">
+          <div className={`w960 portfolio`}>
+            <h2>
+              <span className={`word`}>Portfolio</span>
+            </h2>
+            <p className={`portfolioDes`}>
+              <TextPortfolio />
+            </p>
+            <BtnView />
           </div>
         </section>
 
@@ -120,17 +132,7 @@ class Desktop extends React.PureComponent<Props, {}> {
           </div>
         </section>
 
-        <section className={`gallery`} id="gallery">
-          <div className={`w960 portfolio`}>
-            <h2>
-              <span className={`word`}>Portfolio</span>
-            </h2>
-            <p className={`portfolioDes`}>
-              <TextPortfolio />
-            </p>
-            <BtnView />
-          </div>
-        </section>
+
 
         <section className={`getInTouch`} id="contact">
           <div className={`w960`}>
