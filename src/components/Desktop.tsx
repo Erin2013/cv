@@ -39,7 +39,7 @@ class Desktop extends React.PureComponent<Props, {}> {
       <Div className={`vportDesktop`}>
         <header className={`headerClasses`}>
           <div className={`w960 fboxBetween`} style={{ height: '100%' }}>
-            <h2 data-to="app" onClick={this.jumpTo}>
+            <h2 data-to="about" onClick={this.jumpTo}>
               About
             </h2>
             <h2 data-to="gallery" onClick={this.jumpTo}>
@@ -55,7 +55,7 @@ class Desktop extends React.PureComponent<Props, {}> {
           </div>
         </header>
 
-        <section className={`profile`}>
+        <section className={`profile`} id="about">
           <div className={`w960`}>
             <div id="profile" className={`w800 profile`}>
               <div className={`fboxMid`} style={{ padding: `20px 0` }}>

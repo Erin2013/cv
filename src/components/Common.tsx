@@ -6,9 +6,28 @@ export const TextHI = () => (
 )
 
 export const TextDes = () => (
-  <span>
-    I have over <strong>10</strong> years of experience in the digital field. <br /><br/>I started my career as a Front-End Developer, where my coding knowledge has given me the ability to plan, consider user issues, and focus on the bottom line before starting any work. Currently, I work in the Digital Financial Department of Fubon Securities, where I am responsible for Figma UI design, user experience optimization, and front-end development.
-  </span>
+  <div style={{
+    display: 'flex',
+    flexDirection: 'column',
+  }}>
+    <div>
+      I have over <strong>10</strong> years of experience in the digital field. <br /><br/>I started my career as a Front-End Developer, where my coding knowledge has given me the ability to plan, consider user issues, and focus on the bottom line before starting any work. Currently, I work in the Digital Financial Department of Fubon Securities, where I am responsible for Figma UI design, user experience optimization, and front-end development.
+    </div>
+
+    <div style={{marginTop: 40}}>
+      <a
+        className={`btn`}
+        href={`https://drive.google.com/file/d/1Xpb_j2u9FqUZUNSQ46EQA1LTzwSmfjLr/view?usp=drive_link`}
+        target="_blank"
+        style={{
+          color: '#1484a1',
+          borderColor: '#1484a1',
+        }}
+      >
+        View CV
+      </a>
+    </div>
+  </div>
 )
 
 export const ExpMygym = () => (
