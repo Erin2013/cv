@@ -12,6 +12,8 @@ import {
   FromFFN,
   FromMyGym,
   FromUniversity,
+  GetInTouch,
+  Mail,
   TextDes,
   TextHI,
   TextPortfolio,
@@ -39,15 +41,15 @@ class Desktop extends React.PureComponent<Props, {}> {
       <Div className={`vportDesktop`}>
         <header className={`headerClasses`}>
           <div className={`w960 fboxBetween`} style={{ height: '100%' }}>
-            <h2 data-to="app" onClick={this.jumpTo}>
+            <h2 data-to="about" onClick={this.jumpTo}>
               About
             </h2>
-            <h2 data-to="work-experience" onClick={this.jumpTo}>
-              Experiences
+            <h2 data-to="gallery" onClick={this.jumpTo}>
+              Portfolio
             </h2>
             <div className={`logo`} />
-            <h2 data-to="gallery" onClick={this.jumpTo}>
-              Works
+            <h2 data-to="work-experience" onClick={this.jumpTo}>
+              Experiences
             </h2>
             <h2 data-to="contact" onClick={this.jumpTo}>
               Contact
@@ -55,7 +57,7 @@ class Desktop extends React.PureComponent<Props, {}> {
           </div>
         </header>
 
-        <section className={`profile`}>
+        <section className={`profile`} id="about">
           <div className={`w960`}>
             <div id="profile" className={`w800 profile`}>
               <div className={`fboxMid`} style={{ padding: `20px 0` }}>
@@ -72,6 +74,18 @@ class Desktop extends React.PureComponent<Props, {}> {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className={`gallery`} id="gallery">
+          <div className={`w960 portfolio`}>
+            <h2>
+              <span className={`word`}>Portfolio</span>
+            </h2>
+            <p className={`portfolioDes`}>
+              <TextPortfolio />
+            </p>
+            <BtnView />
           </div>
         </section>
 
@@ -120,22 +134,12 @@ class Desktop extends React.PureComponent<Props, {}> {
           </div>
         </section>
 
-        <section className={`gallery`} id="gallery">
-          <div className={`w960 portfolio`}>
-            <h2>
-              <span className={`word`}>Portfolio</span>
-            </h2>
-            <p className={`portfolioDes`}>
-              <TextPortfolio />
-            </p>
-            <BtnView />
-          </div>
-        </section>
+
 
         <section className={`getInTouch`} id="contact">
           <div className={`w960`}>
             <TextTouch />
-            <BtnTouch />
+            <GetInTouch />
           </div>
         </section>
       </Div>

@@ -13,6 +13,8 @@ import {
   FromFFN,
   FromMyGym,
   FromUniversity,
+  GetInTouch,
+  Mail,
   TextDes,
   TextHI,
   TextPortfolio,
@@ -76,11 +78,11 @@ class Mobile extends React.PureComponent<
             <li onClick={this.jumpTo} data-to="m-about">
               About
             </li>
+            <li onClick={this.jumpTo} data-to="m-work">
+              Portfolio
+            </li>
             <li onClick={this.jumpTo} data-to="m-exp">
               Experiences
-            </li>
-            <li onClick={this.jumpTo} data-to="m-work">
-              Works
             </li>
             <li onClick={this.jumpTo} data-to="m-contact">
               Contact
@@ -91,6 +93,16 @@ class Mobile extends React.PureComponent<
           <TextHI />
           <div className={`avatar`} />
           <TextDes />
+        </section>
+
+        <section className={`gallery`} id="m-work">
+          <h2>
+            <span className={`word`}>Portfolio</span>
+          </h2>
+          <p style={{ marginBottom: '40px' }}>
+            <TextPortfolio />
+          </p>
+          <BtnView />
         </section>
 
         <section className={`exp`} id="m-exp">
@@ -124,19 +136,9 @@ class Mobile extends React.PureComponent<
           </div>
         </section>
 
-        <section className={`gallery`} id="m-work">
-          <h2>
-            <span className={`word`}>Portfolio</span>
-          </h2>
-          <p style={{ marginBottom: '40px' }}>
-            <TextPortfolio />
-          </p>
-          <BtnView />
-        </section>
-
         <section className={`getInTouch`} id="m-contact">
           <TextTouch />
-          <BtnTouch />
+          <GetInTouch />
         </section>
       </Div>
     )

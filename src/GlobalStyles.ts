@@ -86,18 +86,19 @@ const GlobalStyles = createGlobalStyle`
       }
     }
     &.exp {
-      background: linear-gradient(#f4e8e4, #f2ded8);
+      background: linear-gradient(#f2f1eb, #eae8dc);
+
       &:after {
         content: '';
-        background: #f2ded8;
+        background: #eae8dc;
       }
     }
     &.gallery {
       padding: 100px 0;
-      background: linear-gradient(#f2f1eb, #eae8dc);
+      background: linear-gradient(#f4e8e4, #f2ded8);
       &:after {
         content: '';
-        background: #eae8dc;
+        background: #f2ded8;
       }
     }
     &.getInTouch {
@@ -174,7 +175,7 @@ const GlobalStyles = createGlobalStyle`
   .logo {
     width: 70px;
     height: 70px;
-    background: no-repeat url(./assets/logo.png);
+    background: no-repeat url(/cv/logo.png);
     background-size: cover;
   }
 
@@ -321,7 +322,7 @@ const GlobalStyles = createGlobalStyle`
     height: 180px;
     width: 180px;
     border-radius: 50%;
-    background: url('./assets/photo.jpg') no-repeat;
+    background: url('/cv/photo.jpg') no-repeat;
     background-size: 180px;
   }
 

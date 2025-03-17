@@ -1,56 +1,37 @@
 {
-  "name": "erin-cv",
-  "version": "2.0.0",
-  "sideEffects": false,
-  "description": "Erin Yao's CV",
-  "main": "index.js",
-  "keywords": [],
-  "author": "Erin Yao",
-  "license": "MIT",
-  "devDependencies": {
-    "@rwu823/ts-base": "github:rwu823/ts-base#latest",
-    "@types/animejs": "2.0.2",
-    "@types/aos": "3.0.1",
-    "@types/html-webpack-plugin": "3.2.0",
-    "@types/node": "11.13.4",
-    "@types/react": "16.8.13",
-    "@types/react-dom": "16.8.4",
-    "@types/styled-components": "4.1.14",
-    "@types/webpack": "4.4.27",
-    "@types/webpack-dev-server": "3.1.5",
-    "awesome-typescript-loader": "5.2.1",
-    "html-webpack-plugin": "3.2.0",
-    "typescript-plugin-styled-components": "1.4.2",
-    "webpack": "4.30.0",
-    "webpack-cli": "3.3.0",
-    "webpack-dev-server": "3.3.1"
-  },
+  "name": "erin-cv2",
+  "private": true,
+  "version": "0.0.0",
   "repository": "git@github.com:Erin2013/cv.git",
-  "lint-staged": {
-    "*.{ts,tsx,js}": [
-      "eslint --fix",
-      "git add"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "deploy": "bun run scripts/publish.ts"
   },
   "dependencies": {
-    "animejs": "3.0.1",
-    "aos": "3.0.0-beta.6",
-    "axios": "0.18.0",
+    "animejs": "3.2.2",
+    "aos": "2.3.4",
+    "axios": "1.8.2",
     "is-type-guard": "1.0.0",
-    "react": "16.8.6",
-    "react-dom": "16.8.6",
-    "react-hot-loader": "4.8.4",
-    "styled-components": "4.2.0"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "styled-components": "6.1.15"
   },
-  "scripts": {
-    "dev": "webpack-dev-server --hot",
-    "build": "rm -rf gh-pages && NODE_ENV=production webpack --progress && cp -r src/assets gh-pages/",
-    "gh-pages": "ts-node scripts/publish",
-    "transcrypt": "curl -s https://raw.githubusercontent.com/elasticdog/transcrypt/master/transcrypt | bash -s --"
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "@types/bun": "1.2.4",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.21.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^15.15.0",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.24.1",
+    "vite": "^6.2.0"
   }
 }

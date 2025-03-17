@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { hot } from 'react-hot-loader/root'
+
 import styled, { css } from 'styled-components'
 import AOS from 'aos'
 
@@ -30,4 +30,4 @@ const App: React.FunctionComponent<Props> = () => {
   )
 }
 
-export default hot(App)
+export default App

@@ -1,13 +1,7 @@
 {
-  "extends": "@rwu823/ts-base/tsconfig",
-  "exclude": [
-    "node_modules",
-    "out/**/*",
-    "**/*.spec.ts",
-    "**/*.test.ts"
-  ],
-  "compilerOptions": {
-    "outDir": "out",
-    "declaration": false,
-  }
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
 }

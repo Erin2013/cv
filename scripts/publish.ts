@@ -1,9 +1,9 @@
-import { exec } from 'child_process'
+import { exec } from 'node:child_process'
 import pkg from '../package.json'
 
 exec(
   /* bash */ `
-  cd gh-pages
+  cd dist
   git init
   git add -A
   git cm -nm "${pkg.version}"

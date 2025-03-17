@@ -6,41 +6,48 @@ export const TextHI = () => (
 )
 
 export const TextDes = () => (
-  <span>
-    I've started my career in the internet industry for <strong>6+</strong>{' '}
-    years. I was a Front-End Developer, my coding knowledge gives me the ability
-    to plan out, consider user issues and the bottom line before work begins.
-  </span>
+  <div style={{
+    display: 'flex',
+    flexDirection: 'column',
+  }}>
+    <div>
+      I have over <strong>10</strong> years of experience in the digital field. <br /><br/>I started my career as a Front-End Developer, where my coding knowledge has given me the ability to plan, consider user issues, and focus on the bottom line before starting any work. Currently, I work in the Digital Financial Department of Fubon Securities, where I am responsible for Figma UI design, user experience optimization, and front-end development.
+    </div>
+
+    <div style={{marginTop: 40}}>
+      <a
+        className={`btn`}
+        href={`https://drive.google.com/file/d/1Xpb_j2u9FqUZUNSQ46EQA1LTzwSmfjLr/view?usp=drive_link`}
+        target="_blank"
+        style={{
+          color: '#1484a1',
+          borderColor: '#1484a1',
+        }}
+      >
+        View CV
+      </a>
+    </div>
+  </div>
 )
 
 export const ExpMygym = () => (
   <div>
-    <h3>My Gym Children's Fitness Center - Taiwan branch</h3>
-    <h4>Designer (Digital Marketing & Arts)</h4>
+    <h3>Fubon Securities Co. Ltd.</h3>
+    <h4>Designer/Front-End Developer/PM</h4>
 
     <ul>
       <li>
-        Management of social media platforms involving the visual
-        content(videos, images) creation and copywriting.
+        Led the optimization of the securities online account opening system by integrating data sources to track user behavior and identify pain points. Analyzed competitors' online account opening processes to identify areas of improvement and benchmark best practices.
       </li>
 
       <li>
-        Building My Gym's new responsive website, which is still working on.
+        Transformed existing in-branch services to online services, primarily responsible for front-end development, Figma UI design, and user experience optimization.
       </li>
 
       <li>
-        Designed teaching materials, flyers, posters, EDMs, announcements &
-        monthly class schedules.
+        Planned and executed digital customer acquisition marketing strategies, including LINE Bank partnership and advertising operations, responsible for performance tracking and optimization.
       </li>
 
-      <li>
-        Planned and decorated special events & themed holiday parties. Provided
-        backdrop design and decorations.
-      </li>
-
-      <li>
-        Courses' photo-shooting & video-shooting for collecting materials.
-      </li>
     </ul>
   </div>
 )
@@ -80,10 +87,8 @@ export const Exp5213 = () => (
     <ul>
       <li>
         Conceptualized 2-3 promotional campaigns weekly, executed, designed
-        website layout and ads ( including Google AdWords, EDMs, Facebook,
-        newspaper, magazine ).
+        website layout and ads.
       </li>
-      <li>Edited, designed 2,000+ product images each season (A/W & S/S).</li>
       <li>
         Operated e-commerce platform system, programmed HTML and CSS to enhance
         user experience.
@@ -105,9 +110,7 @@ export const ExpUniversity = () => (
 
 export const TextPortfolio = () => (
   <span>
-    I enjoy drawing and finding inspiration from my everyday moments. <br />
-    Click the button to see my works, which include web design, illustrations,
-    ads, etc.
+    I'm passionate about user experience and the visual design of web and app interfaces, <br/>and hope to have the opportunity to create great user experiences with an amazing team.
   </span>
 )
 
@@ -115,12 +118,11 @@ export const TextTouch = () => (
   <span>
     <p>Thanks for your visit.</p>
     <p>Feel free to get in touch with me anytime.</p>
-    <p>I'll respond as quickly as possible.</p>
   </span>
 )
 
 export const FromMyGym = (props: {}) => (
-  <ExpPeriod from="Dec. 2017" to="present" {...props} />
+  <ExpPeriod from="Dec. 2018" to="present" {...props} />
 )
 
 export const FromFFN = (props: {}) => (
@@ -133,9 +135,11 @@ export const FromUniversity = () => (
   <ExpPeriod from="Sep. 2006" to="Jul. 2010" />
 )
 
+export const Mail = () => <small>eyao.tw@gmail.com</small>
+
 export const BtnTouch = () => (
   <div className="btn">
-    <a href="mailto:eyao.au@gmail.com">
+    <a href="mailto:eyao.tw@gmail.com">
       <svg
         fill="#fff"
         style={{ width: 22 }}
@@ -153,3 +157,14 @@ export const BtnTouch = () => (
     </a>
   </div>
 )
+
+export const GetInTouch = () => {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', rowGap: 4 }}>
+      <div>
+        <BtnTouch />
+      </div>
+      <Mail />
+    </div>
+  )
+}
